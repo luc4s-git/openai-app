@@ -1,3 +1,3 @@
-export default function Tours() {
+export default function ToursPage() {
   return <div>Tours</div>;
 }

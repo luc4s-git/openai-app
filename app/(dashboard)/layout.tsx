@@ -1,3 +1,11 @@
+import { MetadataType } from '../@types/metadata';
+
+export const metadata: MetadataType = {
+  title: 'GPTGenius',
+  content:
+    'GPTGenius: Your AI language companion. Powered by OpenAI, it enhances your conversations, content creation and more!',
+};
+
 export default function DashboardLayout({
   children,
 }: {
@@ -7,5 +15,5 @@ export default function DashboardLayout({
     item: string;
   };
 }) {
-  return <div className="m-auto max-w-4xl mt-7">{children}</div>;
+  return <div>{children}</div>;
 }
