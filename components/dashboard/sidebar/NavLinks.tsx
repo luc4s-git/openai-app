@@ -1,20 +1,24 @@
 import Link from 'next/link';
 
+const links = [
+  { href: '/chat', label: 'chat' },
+  { href: '/tours', label: 'tours' },
+  { href: '/tours/new-tour', label: 'new tour' },
+  { href: '/profile', label: 'profile' },
+];
+
 export default function NavLinks() {
   return (
-    <ul className="menu rounded-box text-lg">
-      <li>
-        <Link href={'/chat'}>Chat</Link>
-      </li>
-      <li>
-        <Link href={'/tours'}>Tours</Link>
-      </li>
-      <li>
-        <Link href={'/tours'}>New Tour</Link>
-      </li>
-      <li>
-        <Link href={'/profile'}>Profile</Link>
-      </li>
+    <ul className="menu">
+      {links.map((link) => {
+        return (
+          <li key={link.href}>
+            <Link href={link.href} className="capitalize text-lg">
+              {link.label}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }
