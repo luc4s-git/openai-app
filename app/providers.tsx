@@ -5,16 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 
-const ToastProvider = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <>
-      <Toaster position="top-center" />
-      {children}
-    </>
-  );
-};
-
-const QueryProvider = ({ children }: { children: React.ReactNode }) => {
+const Providers = ({ children }: { children: React.ReactNode }) => {
   const [queryClient] = useState(
     () =>
       new QueryClient({ defaultOptions: { queries: { staleTime: 60 * 1000 } } })
@@ -22,10 +13,11 @@ const QueryProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Toaster position="top-center" />
       {children}
-      <ReactQueryDevtools />
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };
 
-export { ToastProvider, QueryProvider };
+export default Providers;
